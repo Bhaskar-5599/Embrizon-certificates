@@ -56,16 +56,16 @@
   <h1>Internship Certificates</h1>
 
   <div class="tabs">
-    <button class="tab-button active" onclick="showCertificate('training')">Internship</button>
-    <button class="tab-button" onclick="showCertificate('project')">Training</button>
-    <button class="tab-button" onclick="showCertificate('other')">Project</button>
+    <button class="tab-button active" onclick="showCertificate('training', this)">Training</button>
+    <button class="tab-button" onclick="showCertificate('project', this)">Project</button>
+    <button class="tab-button" onclick="showCertificate('other', this)">Other</button>
   </div>
 
   <div id="Internship Certificate" class="certificate active">
     <img src="Internship_Certificate.jpg" alt="Internship Certificate">
   </div>
 
-  <div id="Training Certificate " class="certificate">
+  <div id="Training Certificate" class="certificate">
     <img src="Training_Certificate.jpg" alt="Training Certificate">
   </div>
 
@@ -74,15 +74,15 @@
   </div>
 
   <script>
-    function showCertificate(id) {
+    function showCertificate(id, btn) {
       // Hide all certificates
       document.querySelectorAll('.certificate').forEach(cert => cert.classList.remove('active'));
-      // Remove active class from buttons
-      document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+      // Remove active class from all buttons
+      document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
       // Show the selected certificate
       document.getElementById(id).classList.add('active');
       // Highlight the active button
-      event.target.classList.add('active');
+      btn.classList.add('active');
     }
   </script>
 </body>
